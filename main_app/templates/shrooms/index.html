@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for s in shrooms %}
+    <a href="{% url 'show' s.id %}">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{s.common_name}}</span>
+                <p>Scientific Name: {{s.sci_name}}</p>
+                {% if s.edible %}
+                    <p>Edibility: Edible</p>
+                {% else %}
+                    <p>Edibility: Inedible</p>
+                {% endif %}
+                <p>Special Attribute: {{s.description}}</p>
+            </div>
+        </div>
+    </a>
+{% endfor %}
+
+{% endblock %}
