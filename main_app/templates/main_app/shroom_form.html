@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- {% if object %}
+    <h1>Edit {{ object.name }}</h1>
+{% else %} -->
+<h1>Add Shroom</h1>
+<!-- {% endif %} -->
+<form action="" method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken"
+        value="KbnYZ7KnGs3uZND75mDGNr0b3EJoIUYXCCaGEKW5MLqcw7YDvZTuM810Asyv2XaM">
+    <table>
+        <tbody>
+            <tr>
+                <th><label for="id_sci_name">Sci name:</label></th>
+                <td>
+                    <input type="text" name="sci_name" maxlength="100" required="" id="id_sci_name"/>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_common_name">Common name:</label></th>
+                <td>
+
+                    <input type="text" name="common_name" maxlength="100" required="" id="id_common_name"/>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_description">Description:</label></th>
+                <td>
+                    <textarea name="description" cols="40" rows="10" maxlength="250" required=""
+                        id="id_description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_edible">Edible:</label></th>
+                <td>
+                    <label for="id_edible">
+                        <input type="checkbox" name="edible" id="id_edible"/>
+                        <span>Yes</span>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Submit" class="btn"/>
+</form>
+
+{% endblock %}

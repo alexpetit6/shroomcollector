@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Shroom
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # shrooms = [
 #     {sci_name= 'Psilocybe cyanescens', common_name= 'Wavy Caps', edible= True, properties= 'psychoactive'},
@@ -26,3 +27,7 @@ def shrooms_show(request, shroom_id):
     return render(request, 'shrooms/show.html', {
         'shroom': shroom
     })
+
+class ShroomCreate(CreateView):
+    model = Shroom
+    fields = '__all__'
