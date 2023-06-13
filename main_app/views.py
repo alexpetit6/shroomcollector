@@ -31,3 +31,11 @@ def shrooms_show(request, shroom_id):
 class ShroomCreate(CreateView):
     model = Shroom
     fields = '__all__'
+
+class ShroomUpdate(UpdateView):
+    model = Shroom
+    fields = '__all__'
+
+class ShroomDelete(DeleteView):
+    model = Shroom
+    success_url = 'shrooms/'
