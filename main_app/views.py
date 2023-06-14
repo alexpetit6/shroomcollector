@@ -38,4 +38,4 @@ class ShroomUpdate(UpdateView):
 
 class ShroomDelete(DeleteView):
     model = Shroom
-    success_url = 'shrooms/'
+    success_url = '/shrooms'

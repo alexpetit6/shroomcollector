@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'shroom_update' shroom.id %}">
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{shroom.common_name}}</span>
@@ -14,5 +13,6 @@
             <p>Special Attribute: {{shroom.description}}</p>
         </div>
     </div>
-</a>
+    <a href="{% url 'shroom_update' shroom.id %}">Edit</a>
+    <a href="{% url 'shroom_delete' shroom.id %}">Delete</a>
 {% endblock %}
