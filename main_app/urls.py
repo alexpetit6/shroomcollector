@@ -8,5 +8,6 @@ urlpatterns = [
     path('shrooms/<int:shroom_id>/', views.shrooms_show, name='show'),
     path('shrooms/create/', views.ShroomCreate.as_view(), name='shroom_create'),
     path('shrooms/<int:pk>/update/', views.ShroomUpdate.as_view(), name='shroom_update'),
-    path('shrooms/<int:pk>/delete/', views.ShroomDelete.as_view(), name='shroom_delete')
+    path('shrooms/<int:pk>/delete/', views.ShroomDelete.as_view(), name='shroom_delete'),
+    path('shrooms/<int:shroom_id>/add_origin', views.add_origin, name='add_origin'),
 ]
