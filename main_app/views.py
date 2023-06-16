@@ -26,9 +26,12 @@ def shrooms_index(request):
 
 def shrooms_show(request, shroom_id):
     shroom = Shroom.objects.get(id=shroom_id)
+    id_list = shroom.meals.all().values_list('id')
+    meals_shroom_doesnt_have  = Meal.objects.exclude(id__in=id_list)
     origin_form = OriginForm()
     return render(request, 'shrooms/show.html', {
         'shroom': shroom,
+        'meals': meals_shroom_doesnt_have,
         'origin_form': origin_form
     })
 
@@ -70,3 +73,11 @@ class MealUpdate(UpdateView):
 class MealDelete(DeleteView):
     model = Meal
     success_url = '/meals'
+
+def assoc_meal(request, shroom_id, meal_id):
+    Shroom.objects.get(id=shroom_id).meals.add(meal_id)
+    return redirect('show', shroom_id=shroom_id)
+
+def remove_meal(request, shroom_id, meal_id):
+    Shroom.objects.get(id=shroom_id).meals.remove(meal_id)
+    return redirect('show', shroom_id=shroom_id)
