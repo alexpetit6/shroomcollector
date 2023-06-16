@@ -10,4 +10,9 @@ urlpatterns = [
     path('shrooms/<int:pk>/update/', views.ShroomUpdate.as_view(), name='shroom_update'),
     path('shrooms/<int:pk>/delete/', views.ShroomDelete.as_view(), name='shroom_delete'),
     path('shrooms/<int:shroom_id>/add_origin', views.add_origin, name='add_origin'),
+    path('meals/', views.MealList.as_view(), name='meal_list'),
+    path('meals/<int:pk>', views.MealDetail.as_view(), name='meal_detail'),
+    path('meals/create', views.MealCreate.as_view(), name='meal_create'),
+    path('meals/<int:pk>/update/', views.MealUpdate.as_view(), name='meal_update'),
+    path('meals/<int:pk>/delete/', views.MealDelete.as_view(), name='meal_delete'),
 ]

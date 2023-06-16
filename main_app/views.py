@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Shroom
+from django.views.generic import ListView, DetailView
+from .models import Shroom, Meal
 from .forms import OriginForm
 
 # shrooms = [
@@ -51,3 +52,21 @@ def add_origin(request, shroom_id):
         new_origin.shroom_id = shroom_id
         new_origin.save()
     return redirect('show', shroom_id=shroom_id)
+
+class MealList(ListView):
+    model = Meal
+
+class MealDetail(DetailView):
+    model = Meal
+
+class MealCreate(CreateView):
+    model = Meal
+    fields = '__all__'
+
+class MealUpdate(UpdateView):
+    model = Meal
+    fields = '__all__'
+
+class MealDelete(DeleteView):
+    model = Meal
+    success_url = '/meals'
